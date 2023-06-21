@@ -21,6 +21,13 @@ class GenreViewController: UIViewController {
     var wasUserAlbumChosen = false
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        wasUserAlbumChosen = false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -229,13 +236,11 @@ extension GenreViewController: UITableViewDelegate {
             
             topTenList = getTopTenList(genreName: genreName()[indexPath.row])
             
-            //CHECKED UP TO HERE
-            
             genreMoniker = genreName()[indexPath.row]
             
         } else {
             
-            genreMoniker = userAlbumsList[indexPath.row - genreCount()].tableName!
+            genreMoniker = userAlbumsList[indexPath.row - genreCount()].tableName ?? "error"
             wasUserAlbumChosen = true
             
         }

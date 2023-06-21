@@ -62,7 +62,7 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
         DispatchQueue.main.async {
            
             
-            let parsedResponse = parseResponse(rawText: albumInfo.html2Attributed)
+            let parsedResponse = parseResponse(rawText: albumInfo.html2Attributed ?? nil)
             let newString = String(parsedResponse[0])
             
             let albumColourChangedString = NSMutableAttributedString(string: "")
@@ -93,9 +93,9 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
                         }
     
             
-            if imageURL != nil {
+            if let safeImage = imageURL {
          
-                self.albumImage.image = imageURL
+                self.albumImage.image = safeImage
             }
 
             

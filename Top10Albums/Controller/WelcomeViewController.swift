@@ -196,15 +196,16 @@ class WelcomeViewController: UIViewController {
 
 
 extension WelcomeViewController: CAAnimationDelegate {
-    
+        
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
-        if let name = anim.value(forKey: K.name) as? String {
+        if let name = anim.value(forKey: "name") as? String {
 
             
-            if name == K.premiumAnim {
+            if name == "premiumAnim" {
                 
-                if let layer = anim.value(forKey: K.layer) as? CALayer, let originalY = anim.value(forKey: K.originalY) as? CGFloat {
+               
+                if let layer = anim.value(forKey: "layer") as? CALayer, let originalY = anim.value(forKey: "originalY") as? CGFloat {
                     var newPosition = layer.position
                     newPosition.y = originalY
                     newPosition.x = view.center.x

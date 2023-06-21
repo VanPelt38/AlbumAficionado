@@ -13,7 +13,7 @@ struct K {
     // Welcome View Controller
     
     static let uniqueID = "uniqueID"
-    static let positionX = "position.X"
+    static let positionX = "position.x"
     static let originalY = "originalY"
     static let layer = "layer"
     static let premiumAnim = "premiumAnim"

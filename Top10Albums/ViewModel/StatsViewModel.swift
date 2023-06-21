@@ -134,7 +134,8 @@ func calcPremiumScore(userPercent: String) async throws -> String {
     
 
     let currentCollection = db.collection(K.percentages)
-    let query = currentCollection.whereField(K.ID, isNotEqualTo: UserDefaults.standard.object(forKey: K.uniqueID))
+    let query = currentCollection.whereField(K.ID, isNotEqualTo: UserDefaults.standard.object(forKey: K.uniqueID) as Any)
+    
     
     do {
         result = try await query.getDocuments()
@@ -143,9 +144,14 @@ func calcPremiumScore(userPercent: String) async throws -> String {
         print(error)
     }
     
-    for doc in result!.documents {
-        docsArray.append(doc)
+    if let safeResult = result {
+        
+        for doc in safeResult.documents {
+            docsArray.append(doc)
+        }
     }
+    
+   
     
     for doc in docsArray {
     
@@ -153,7 +159,7 @@ func calcPremiumScore(userPercent: String) async throws -> String {
     
                     }
 
-                    finalPercentile = numberCrunch(scoresArray: allPercents, userPercent: doublePercent!)
+    finalPercentile = numberCrunch(scoresArray: allPercents, userPercent: doublePercent ?? 0.0)
 
     return finalPercentile
 }

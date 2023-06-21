@@ -45,7 +45,10 @@ class TopTenViewController: UIViewController {
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         self.topTenTable.addGestureRecognizer(longPressGesture)
         
+       
+        
         loadData(with: genre)
+
         loadUserAlbums(with: genre)
         
         if coreDataArray == [] && userAlbumChosen == false {
@@ -82,10 +85,26 @@ class TopTenViewController: UIViewController {
         }
         let createAction = UIAlertAction(title: K.createMyAlbum, style: .default) { alertAction in
             
-            let userAlbum = UserAlbum(context: self.context)
-            userAlbum.name = createAlbumAlert.textFields?[0].text
-            userAlbum.listName = self.genre
-            self.userAlbums.append(userAlbum)
+            
+            if let textFields = createAlbumAlert.textFields {
+                
+                if let text = textFields[0].text {
+                    
+                    if text != "" {
+                        
+                        let userAlbum = UserAlbum(context: self.context)
+                        userAlbum.name = text
+                        userAlbum.listName = self.genre
+                        self.userAlbums.append(userAlbum)
+                    }
+                    
+                }
+                
+                
+            }
+
+            
+            
             
             DispatchQueue.main.async {
                 self.saveData()
@@ -106,17 +125,25 @@ class TopTenViewController: UIViewController {
             
             if let section = self.topTenTable.indexPathForRow(at: sender.location(in: self.topTenTable))?.row {
                 
+                print("crash point 1")
+                
                 let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
                 feedbackGenerator.prepare()
                 feedbackGenerator.impactOccurred()
+
                 
-                if coreDataArray == [] && userAlbums != [] {
+                if userAlbumChosen && userAlbums != [] {
+                    
+                    print("crash point 2")
                     
                     userAlbums[section].done = !userAlbums[section].done
-                } else if coreDataArray != [] && userAlbums == [] {
+                } else if coreDataArray != [] {
                     
+                    print("crash point 3")
                     coreDataArray[section].itemChecked = !coreDataArray[section].itemChecked
                 }
+                
+                print("crash point 4")
                 
                 saveData()
             }
@@ -181,10 +208,10 @@ extension TopTenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if coreDataArray == [] && userAlbums == [] {
+        if userAlbumChosen && userAlbums == [] {
             
             return 1
-        } else if coreDataArray == [] {
+        } else if userAlbumChosen {
             
             return userAlbums.count
         } else {
@@ -205,7 +232,7 @@ extension TopTenViewController: UITableViewDataSource {
         cell.frame = cell.frame.inset(by: margins)
         
         
-        if coreDataArray == [] && userAlbums == [] {
+        if userAlbumChosen && userAlbums == [] {
             
             
             let genreText = textModifier(textLabel: K.noAlbumsYet, fontSize: 20.0)
@@ -217,12 +244,13 @@ extension TopTenViewController: UITableViewDataSource {
                     }
             
                     cell.nameLabel?.attributedText = genreColourString
+            cell.isUserInteractionEnabled = false
       
             return cell
             
-        } else if coreDataArray == [] {
+        } else if userAlbumChosen {
             
-            let genreText = textModifier(textLabel: userAlbums[indexPath.row].name!, fontSize: 20.0)
+            let genreText = textModifier(textLabel: userAlbums[indexPath.row].name ?? "error", fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -238,7 +266,7 @@ extension TopTenViewController: UITableViewDataSource {
             
         } else {
             
-            let genreText = textModifier(textLabel: coreDataArray[indexPath.row].tableName!, fontSize: 20.0)
+            let genreText = textModifier(textLabel: coreDataArray[indexPath.row].tableName ?? "error", fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -279,11 +307,7 @@ extension TopTenViewController: UITableViewDataSource {
                 saveData()
             }
             
-        } else if editingStyle == .delete && userAlbumChosen == true && userAlbums.count == 0 {
-            
-        
         }
-        
     }
     
 }
@@ -294,7 +318,7 @@ extension TopTenViewController: UITableViewDelegate {
         
         if userAlbumChosen == false {
             
-            albumTitleToSearch = coreDataArray[indexPath.row].wikiName!
+            albumTitleToSearch = coreDataArray[indexPath.row].wikiName ?? "error"
             
             topTenTable.deselectRow(at: indexPath, animated: true)
             
