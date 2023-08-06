@@ -12,107 +12,107 @@ import Foundation
 struct TopTens {
     
     let electroPop: [[String]] = [
-        ["1. Kala - M.I.A.", "Kala (album)"],
-        ["2. Robyn - Robyn", "Robyn (album)"],
-        ["3. Plunge - Fever Ray", "Plunge (album)"],
-        ["4. Anniemal - Annie", "Anniemal"],
-        ["5. Hopelessness - ANOHNI", "Hopelessness (album)"],
-        ["6. Violator - Depeche Mode", "Violator (album)"],
-        ["7. The Pleasure Principle - Gary Numan", "The Pleasure Principle (album)"],
-        ["8. Power Corruption & Lies - New Order", "Power, Corruption & Lies"],
-        ["9. Chaleur Humaine - Christine And The Queens", "Chaleur humaine"],
-        ["10. A New Chance - The Tough Alliance", "A New Chance"]
+        ["1. Kala - M.I.A.", "Kala_(album)", "Kala"],
+        ["2. Robyn - Robyn", "Robyn_(album)", "Robyn"],
+        ["3. Plunge - Fever Ray", "Plunge_(album)", "Plunge"],
+        ["4. Anniemal - Annie", "Anniemal", "Anniemal"],
+        ["5. Hopelessness - ANOHNI", "Hopelessness_(album)", "Hopelessness"],
+        ["6. Violator - Depeche Mode", "Violator_(album)", "Violator"],
+        ["7. The Pleasure Principle - Gary Numan", "The_Pleasure_Principle_(album)", "The Pleasure Principle"],
+        ["8. Power Corruption & Lies - New Order", "Power,_Corruption_%26_Lies", "Power, Corruption & Lies"],
+        ["9. Chaleur Humaine - Christine And The Queens", "Chaleur_humaine", "Chaleur humaine"],
+        ["10. A New Chance - The Tough Alliance", "A_New_Chance", "A New Chance"]
     ]
     
     let punk: [[String]] = [
-        ["1. Ramones - Ramones", "Ramones (album)"],
-         ["2. Never Mind The Bollocks - The Sex Pistols", "Never Mind the Bollocks, Here's the Sex Pistols"],
-          ["3. Fresh Fruit For Rotting Vegetables - Dead Kennedys", "Fresh Fruit for Rotting Vegetables"],
-           ["4. The Clash - The Clash", "The Clash (album)"],
-        ["5. Damaged - Black Flag", "Damaged (Black Flag album)"],
-        ["6. Double Nickels On The Dime - Minutemen", "Double Nickels on the Dime"],
-        ["7. Bad Brains - Bad Brains", "Bad Brains (album)"],
-        ["8. Funhouse - The Stooges", "Fun House (The Stooges album)"],
-        ["9. Static Age - Misfits", "Static Age"],
-        ["10. Out Of Step - Minor Threat", "Minor Threat (album)"]
+        ["1. Ramones - Ramones", "Ramones_(album)", "Ramones"],
+         ["2. Never Mind The Bollocks - The Sex Pistols", "Never_Mind_the_Bollocks,_Here%27s_the_Sex_Pistols", "Never Mind the Bollocks, Here's the Sex Pistols"],
+          ["3. Fresh Fruit For Rotting Vegetables - Dead Kennedys", "Fresh_Fruit_for_Rotting_Vegetables", "Fresh Fruit for Rotting Vegetables"],
+           ["4. The Clash - The Clash", "The_Clash_(album)", "The Clash"],
+        ["5. Damaged - Black Flag", "Damaged_(Black_Flag_album)", "Damaged"],
+        ["6. Double Nickels On The Dime - Minutemen", "Double_Nickels_on_the_Dime", "Double Nickels on the Dime"],
+        ["7. Bad Brains - Bad Brains", "Bad_Brains_(album)", "Bad Brains"],
+        ["8. Funhouse - The Stooges", "Fun_House_(The_Stooges_album)", "Fun House"],
+        ["9. Static Age - Misfits", "Static_Age", "Static Age"],
+        ["10. Out Of Step - Minor Threat", "Minor_Threat_(album)", "Minor Threat"]
     ]
 
     let pop: [[String]] = [
-        ["1. Thriller - Michael Jackson", "Thriller (album)"],
-        ["2. 1999 - Prince", "1999 (Prince album)"],
-        ["3. Like A Prayer - Madonna", "Like a Prayer (album)"],
-        ["4. Arrival - ABBA", "Arrival (ABBA album)"],
-        ["5. Bad Girls - Donna Summers", "Bad Girls (Donna Summer album)"],
-        ["6. Spice - The Spice Girls", "Spice (album)"],
-        ["7. Come On Over - Shania Twain", "Come On Over"],
-        ["8. Taylor Swift - Taylor Swift", "Taylor Swift (album)"],
-        ["9. The Fame Monster - Lady Gaga", "The Fame Monster"],
-        ["10. Hounds Of Love - Kate Bush", "Hounds of Love"]
+        ["1. Thriller - Michael Jackson", "Thriller_(album)", "Thriller"],
+        ["2. 1999 - Prince", "1999_(Prince_album)", "1999"],
+        ["3. Like A Prayer - Madonna", "Like_a_Prayer_(album)", "Like a Prayer"],
+        ["4. Arrival - ABBA", "Arrival_(ABBA_album)", "Arrival"],
+        ["5. Bad Girls - Donna Summers", "Bad_Girls_(Donna_Summer_album)", "Bad Girls"],
+        ["6. Spice - The Spice Girls", "Spice_(album)", "Spice"],
+        ["7. Come On Over - Shania Twain", "Come_On_Over", "Come On Over"],
+        ["8. Taylor Swift - Taylor Swift", "Taylor_Swift_(album)", "Taylor Swift"],
+        ["9. The Fame Monster - Lady Gaga", "The_Fame_Monster", "The Fame Monster"],
+        ["10. Hounds Of Love - Kate Bush", "Hounds_of_Love", "Hounds of Love"]
     ]
     
     let tripHop: [[String]] = [
-        ["1. Dummy - Portishead", "Dummy (album)"],
-        ["2. Mezzanine - Massive Attack", "Mezzanine (album)"],
-        ["3. Maxinquaye - Tricky", "Maxinquaye"],
-        ["4. Smokers Delight - Nightmares On Wax", "Smokers Delight"],
-        ["5. Psyence Fiction - UNKLE", "Psyence Fiction"],
-        ["6. Endtroducing... - DJ Shadow", "Endtroducing..."],
-        ["7. Blue Lines - Massive Attack", "Blue Lines"],
-        ["8. Who Can You Trust? - Morcheeba", "Who Can You Trust? (album)"],
-        ["9. Sounds From The Thievery Hi-Fi - Thievery Corporation", "Sounds from the Thievery Hi-Fi"],
-        ["10. Sounds Of The Satellites - Laika", "Sounds of the Satellites"]
+        ["1. Dummy - Portishead", "Dummy_(album)", "Dummy"],
+        ["2. Mezzanine - Massive Attack", "Mezzanine_(album)", "Mezzanine"],
+        ["3. Maxinquaye - Tricky", "Maxinquaye", "Maxinquaye"],
+        ["4. Smokers Delight - Nightmares On Wax", "Smokers_Delight", "Smokers Delight"],
+        ["5. Psyence Fiction - UNKLE", "Psyence_Fiction", "Psyence Fiction"],
+        ["6. Endtroducing... - DJ Shadow", "Endtroducing...", "Endtroducing..."],
+        ["7. Blue Lines - Massive Attack", "Blue_Lines", "Blue Lines"],
+        ["8. Who Can You Trust? - Morcheeba", "Who_Can_You_Trust%3F_(album)", "Who Can You Trust?"],
+        ["9. Sounds From The Thievery Hi-Fi - Thievery Corporation", "Sounds_from_the_Thievery_Hi-Fi", "Sounds from the Thievery Hi-Fi"],
+        ["10. Sounds Of The Satellites - Laika", "Sounds_of_the_Satellites", "Sounds of the Satellites"]
     ]
     
     let rock: [[String]] = [
-        ["1. Revolver - The Beatles", "Revolver (Beatles album)"],
-        ["2. Are You Experienced - Jimi Hendrix", "Are You Experienced"],
-        ["3. Abbey Road - The Beatles", "Abbey Road"],
-        ["4. The Doors - The Doors", "The Doors (album)"],
-        ["5. Led Zeppelin IV - Led Zeppelin", "Led Zeppelin IV"],
-        ["6. The Dark Side Of The Moon - Pink Floyd", "The Dark Side of the Moon"],
-        ["7. Back In Black - AC/DC", "Back in Black"],
-        ["8. Exile On Main St. - The Rolling Stones", "Exile on Main St."],
-        ["9. Born To Run - Bruce Springsteen", "Born to Run"],
-        ["10. The Rise And Fall Of Ziggy Stardust And The Spiders From Mars - David Bowie", "The Rise and Fall of Ziggy Stardust and the Spiders from Mars"]
+        ["1. Revolver - The Beatles", "Revolver_(Beatles_album)", "Revolver"],
+        ["2. Are You Experienced - Jimi Hendrix", "Are_You_Experienced", "Are You Experienced"],
+        ["3. Abbey Road - The Beatles", "Abbey_Road", "Abbey Road"],
+        ["4. The Doors - The Doors", "The_Doors_(album)", "The Doors"],
+        ["5. Led Zeppelin IV - Led Zeppelin", "Led_Zeppelin_IV", "Led Zeppelin IV"],
+        ["6. The Dark Side Of The Moon - Pink Floyd", "The_Dark_Side_of_the_Moon", "The Dark Side of the Moon"],
+        ["7. Back In Black - AC/DC", "Back_in_Black", "Back in Black"],
+        ["8. Exile On Main St. - The Rolling Stones", "Exile_on_Main_St.", "Exile on Main St."],
+        ["9. Born To Run - Bruce Springsteen", "Born_to_Run", "Born to Run"],
+        ["10. The Rise And Fall Of Ziggy Stardust And The Spiders From Mars - David Bowie", "The_Rise_and_Fall_of_Ziggy_Stardust_and_the_Spiders_from_Mars", "The Rise and Fall of Ziggy Stardust and the Spiders from Mars"]
     ]
     
     let soul: [[String]] = [
-        ["1. Live At The Apollo - James Brown", "Live at the Apollo (1963 album)"],
-        ["2. Songs In The Key Of Life - Stevie Wonder", "Songs in the Key of Life"],
-        ["3. What's Going On - Marvin Gaye", "What's Going On (Marvin Gaye album)"],
-        ["4. Stand! - Sly & The Family Stone", "Stand!"],
-        ["5. I Never Loved A Man The Way I Love You - Aretha Franklin", "I Never Loved a Man the Way I Love You"],
-        ["6. The Genius Of Ray Charles - Ray Charles", "The Genius of Ray Charles"],
-        ["7. Voodoo - D'Angelo", "Voodoo (D'Angelo album)"],
-        ["8. Innervisions - Stevie Wonder", "Innervisions"],
-        ["9. In Person - Ray Charles", "Ray Charles in Person"],
-        ["10. Let's Stay Together - Al Green", "Let's Stay Together (Al Green album)"]
+        ["1. Live At The Apollo - James Brown", "Live_at_the_Apollo_(1963_album)", "Live at the Apollo"],
+        ["2. Songs In The Key Of Life - Stevie Wonder", "Songs_in_the_Key_of_Life", "Songs in the Key of Life"],
+        ["3. What's Going On - Marvin Gaye", "What%27s_Going_On_(Marvin_Gaye_album)", "What's Going On"],
+        ["4. Stand! - Sly & The Family Stone", "Stand!", "Stand!"],
+        ["5. I Never Loved A Man The Way I Love You - Aretha Franklin", "I_Never_Loved_a_Man_the_Way_I_Love_You", "I Never Loved a Man the Way I Love You"],
+        ["6. The Genius Of Ray Charles - Ray Charles", "The_Genius_of_Ray_Charles", "The Genius of Ray Charles"],
+        ["7. Voodoo - D'Angelo", "Voodoo_(D%27Angelo_album)", "Voodoo"],
+        ["8. Innervisions - Stevie Wonder", "Innervisions", "Innervisions"],
+        ["9. In Person - Ray Charles", "Ray_Charles_in_Person", "In Person"],
+        ["10. Let's Stay Together - Al Green", "Let%27s_Stay_Together_(Al_Green_album)", "Let's Stay Together"]
     ]
     
     let electroHouse: [[String]] = [
-        ["1. Cross - Justice", "Cross (Justice album)"],
-        ["2. Destroy Rock & Roll - Mylo", "Destroy Rock & Roll"],
-        ["3. Army Of Mushrooms - Infected Mushroom", "Army of Mushrooms"],
-        ["4. Clarity - Zedd", "Clarity (Zedd album)"],
-        ["5. Essential - Soulwax", "Soulwax"],
-        ["6. Alternative Light Source - Leftfield", "Alternative Light Source"],
-        ["7. Generation Hexed - Drums Of Death", "Generation Hexed"],
-        ["8. OutRun - Kavinsky", "OutRun (album)"],
-        ["9. Aleph - Gesaffelstein", "Aleph (album)"],
-        ["10. 4x4=12 - Deadmau5", "4×4=12"]
+        ["1. Cross - Justice", "Cross_(Justice_album)", "Cross"],
+        ["2. Destroy Rock & Roll - Mylo", "Destroy_Rock_%26_Roll", "Destroy Rock & Roll"],
+        ["3. Army Of Mushrooms - Infected Mushroom", "Army_of_Mushrooms", "Army of Mushrooms"],
+        ["4. Clarity - Zedd", "Clarity_(Zedd_album)", "Clarity"],
+        ["5. Essential - Soulwax", "Soulwax#Albums", "Soulwax"],
+        ["6. Alternative Light Source - Leftfield", "Alternative_Light_Source", "Alternative Light Source"],
+        ["7. Generation Hexed - Drums Of Death", "Generation_Hexed", "Generation Hexed"],
+        ["8. OutRun - Kavinsky", "OutRun_(album)", "OutRun"],
+        ["9. Aleph - Gesaffelstein", "Aleph_(album)", "Aleph"],
+        ["10. 4x4=12 - Deadmau5", "4×4%3D12", "4×4=12"]
     ]
     
     let hipHop: [[String]] = [
-        ["1. The Chronic - Dr. Dre", "The Chronic"],
-        ["2. Illmatic - Nas", "Illmatic"],
-        ["3. It Takes A Nation Of Millions To Hold Us Back - Public Enemy", "It Takes a Nation of Millions to Hold Us Back"],
-        ["4. Ready To Die - The Notorious B.I.G.", "Ready to Die"],
-        ["5. Enter The Wu-Tang (36 Chambers) - Wu-Tang Clan", "Enter the Wu-Tang (36 Chambers)"],
-        ["6. Paul's Boutique - Beastie Boys", "Paul's Boutique"],
-        ["7. Midnight Marauders - A Tribe Called Quest", "Midnight Marauders"],
-        ["8. 3 Feet High And Rising - De La Soul", "3 Feet High and Rising"],
-        ["9. Gangster Chronicle - London Posse", "Gangster Chronicle"],
-        ["10. All Eyez On Me - 2Pac", "All Eyez on Me"]
+        ["1. The Chronic - Dr. Dre", "The_Chronic", "The Chronic"],
+        ["2. Illmatic - Nas", "Illmatic", "Illmatic"],
+        ["3. It Takes A Nation Of Millions To Hold Us Back - Public Enemy", "It_Takes_a_Nation_of_Millions_to_Hold_Us_Back", "It Takes a Nation of Millions to Hold Us Back"],
+        ["4. Ready To Die - The Notorious B.I.G.", "Ready_to_Die", "Ready to Die"],
+        ["5. Enter The Wu-Tang (36 Chambers) - Wu-Tang Clan", "Enter_the_Wu-Tang_(36_Chambers)", "Enter the Wu-Tang (36 Chambers)"],
+        ["6. Paul's Boutique - Beastie Boys", "Paul%27s_Boutique", "Paul's Boutique"],
+        ["7. Midnight Marauders - A Tribe Called Quest", "Midnight_Marauders", "Midnight Marauders"],
+        ["8. 3 Feet High And Rising - De La Soul", "3_Feet_High_and_Rising", "3 Feet High and Rising"],
+        ["9. Gangster Chronicle - London Posse", "Gangster_Chronicle", "Gangster Chronicle"],
+        ["10. All Eyez On Me - 2Pac", "All_Eyez_on_Me", "All Eyez on Me"]
     ]
     
     let indie: [[String]] = [
@@ -155,16 +155,16 @@ struct TopTens {
     ]
     
     let postRock: [[String]] = [
-        ["1. Millions Now Living Will Never Die - Tortoise", "Millions Now Living Will Never Die"],
-        ["2. Spiderland - Slint", "Spiderland"],
-        ["3. Hex - Bark Psychosis", "Hex (Bark Psychosis album)"],
-        ["4. Laughing Stock - Talk Talk", "Laughing Stock"],
-        ["5. Young Team - Mogwai", "Mogwai Young Team"],
-        ["6. F♯ A♯ ∞ - Godspeed You! Black Emperor", "F♯ A♯ ∞"],
-        ["7. Ágætis byrjun - Sigur Ros", "Ágætis byrjun"],
-        ["8. Spirit Of Eden - Talk Talk", "Spirit of Eden"],
-        ["9. China Gate - Cul De Sac", "China Gate (album)"],
-        ["10. Mirrored - Battles", "Mirrored"]
+        ["1. Millions Now Living Will Never Die - Tortoise", "Millions_Now_Living_Will_Never_Die", "Millions Now Living Will Never Die"],
+        ["2. Spiderland - Slint", "Spiderland", "Spiderland"],
+        ["3. Hex - Bark Psychosis", "Hex_(Bark_Psychosis_album)", "Hex"],
+        ["4. Laughing Stock - Talk Talk", "Laughing_Stock", "Laughing Stock"],
+        ["5. Young Team - Mogwai", "Mogwai_Young_Team", "Young Team"],
+        ["6. F♯ A♯ ∞ - Godspeed You! Black Emperor", "F♯_A♯_∞", "F♯ A♯ ∞"],
+        ["7. Ágætis byrjun - Sigur Ros", "Ágætis_byrjun", "Ágætis byrjun"],
+        ["8. Spirit Of Eden - Talk Talk", "Spirit_of_Eden", "Spirit of Eden"],
+        ["9. China Gate - Cul De Sac", "China_Gate_(album)", "China Gate"],
+        ["10. Mirrored - Battles", "Mirrored", "Mirrored"]
     ]
     
     let reggaeton: [[String]] = [

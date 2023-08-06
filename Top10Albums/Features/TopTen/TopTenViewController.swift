@@ -19,6 +19,7 @@ class TopTenViewController: UIViewController {
     var albumInfo: String = ""
     var albumManager = AlbumManager()
     var albumTitleToSearch: String = ""
+    var albumTitleToSearch2: String = ""
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var coreDataArray = [AlbumItem]()
     var longPressGesture: UILongPressGestureRecognizer!
@@ -50,7 +51,7 @@ class TopTenViewController: UIViewController {
         loadData(with: genre)
 
         loadUserAlbums(with: genre)
-        
+        coreDataArray = []
         if coreDataArray == [] && userAlbumChosen == false {
             
   
@@ -62,6 +63,7 @@ class TopTenViewController: UIViewController {
                 newAlbum.itemChecked = false
                 newAlbum.tableName = album[0]
                 newAlbum.wikiName = album[1]
+                newAlbum.urlName = album[2]
                 newAlbum.genre = genre
                 
                 coreDataArray.append(newAlbum)
@@ -198,6 +200,8 @@ class TopTenViewController: UIViewController {
             
             let destinationVC = segue.destination as! AlbumInfoViewController
             destinationVC.albumTitleForSearching = albumTitleToSearch
+            destinationVC.albumTitleForSearching2 = albumTitleToSearch2
+           
         }
 
     }
@@ -235,7 +239,7 @@ extension TopTenViewController: UITableViewDataSource {
         if userAlbumChosen && userAlbums == [] {
             
             
-            let genreText = textModifier(textLabel: K.noAlbumsYet, fontSize: 20.0)
+            let genreText = albumManager.modifyText(textLabel: K.noAlbumsYet, fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -250,7 +254,7 @@ extension TopTenViewController: UITableViewDataSource {
             
         } else if userAlbumChosen {
             
-            let genreText = textModifier(textLabel: userAlbums[indexPath.row].name ?? "error", fontSize: 20.0)
+            let genreText = albumManager.modifyText(textLabel: userAlbums[indexPath.row].name ?? "error", fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -266,7 +270,7 @@ extension TopTenViewController: UITableViewDataSource {
             
         } else {
             
-            let genreText = textModifier(textLabel: coreDataArray[indexPath.row].tableName ?? "error", fontSize: 20.0)
+            let genreText = albumManager.modifyText(textLabel: coreDataArray[indexPath.row].tableName ?? "error", fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -319,6 +323,8 @@ extension TopTenViewController: UITableViewDelegate {
         if userAlbumChosen == false {
             
             albumTitleToSearch = coreDataArray[indexPath.row].wikiName ?? "error"
+            albumTitleToSearch2 = coreDataArray[indexPath.row].urlName ?? "error"
+
             
             topTenTable.deselectRow(at: indexPath, animated: true)
             

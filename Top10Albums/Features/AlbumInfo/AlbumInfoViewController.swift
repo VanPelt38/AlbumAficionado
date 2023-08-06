@@ -18,6 +18,7 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
     
     var albumManager = AlbumManager()
     var albumTitleForSearching: String = ""
+    var albumTitleForSearching2: String = ""
     
     let typingDelay = 0.01
     
@@ -28,9 +29,9 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
 
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             
-            for index in 0..<self.albumTitleForSearching.count {
+            for index in 0..<self.albumTitleForSearching2.count {
                 
-                let character = String(self.albumTitleForSearching[self.albumTitleForSearching.index(self.albumTitleForSearching.startIndex, offsetBy: index)])
+                let character = String(self.albumTitleForSearching2[self.albumTitleForSearching2.index(self.albumTitleForSearching2.startIndex, offsetBy: index)])
                 let attributedCharacter = NSMutableAttributedString(string: character)
                 
                 if character.lowercased() == "a" {
@@ -52,7 +53,10 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
                     }
         
         albumManager.delegate = self
-        albumManager.getAlbumInfo(albumTitle: albumTitleForSearching)
+        
+        Task.init {
+            try await albumManager.getAlbumInfo(albumTitle: albumTitleForSearching, urlTitle: albumTitleForSearching2)
+        }
         
         
 
@@ -61,7 +65,7 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
     func didUpdateAlbumInfo(albumInfo: String, imageURL: UIImage?) {
         DispatchQueue.main.async {
            
-            
+            print("album info is being updated")
             let parsedResponse = parseResponse(rawText: albumInfo.html2Attributed ?? nil)
             let newString = String(parsedResponse[0])
             
@@ -91,10 +95,10 @@ class AlbumInfoViewController: UIViewController, AlbumManagerDelegate {
                 }
                 
                         }
-    
-            
+    print("image about to be done")
+            self.albumImage.image = imageURL
             if let safeImage = imageURL {
-         
+                print("safeimage is got")
                 self.albumImage.image = safeImage
             }
 

@@ -17,53 +17,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmn-GP-V5x">
-                                <rect key="frame" x="103" y="290" width="182" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <color key="highlightedColor" systemColor="systemRedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9w-QL-29S">
-                                <rect key="frame" x="-16" y="309" width="171" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lbum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akD-ry-jJh">
-                                <rect key="frame" x="36" y="309" width="171" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ficion" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyq-XW-CmP">
-                                <rect key="frame" x="163" y="309" width="171" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="do" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4v-3B-qRi">
-                                <rect key="frame" x="277" y="297" width="97" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5c-xh-dVB">
-                                <rect key="frame" x="212" y="309" width="171" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imgbin_phonograph-record-roadburn-festival-lp-record-album-png" translatesAutoresizingMaskIntoConstraints="NO" id="sqQ-JN-oQe">
-                                <rect key="frame" x="123" y="403" width="147" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5pK-Cx-be6">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEq-fz-F6h" userLabel="UpView">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="264.33333333333331"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWG-Bc-LE4" userLabel="TitleView">
+                                        <rect key="frame" x="0.0" y="264.33333333333337" width="393" height="264.33333333333337"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newtitle" translatesAutoresizingMaskIntoConstraints="NO" id="nbg-gP-VOX">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="264.33333333333331"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nbg-gP-VOX" firstAttribute="leading" secondItem="RWG-Bc-LE4" secondAttribute="leading" id="4i5-jZ-fLR"/>
+                                            <constraint firstAttribute="bottom" secondItem="nbg-gP-VOX" secondAttribute="bottom" id="5ta-sZ-SAG"/>
+                                            <constraint firstAttribute="trailing" secondItem="nbg-gP-VOX" secondAttribute="trailing" id="BZO-td-v56"/>
+                                            <constraint firstItem="nbg-gP-VOX" firstAttribute="top" secondItem="RWG-Bc-LE4" secondAttribute="top" id="s8H-eN-e6N"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWf-Ik-0Xq" userLabel="BottomView">
+                                        <rect key="frame" x="0.0" y="528.66666666666663" width="393" height="264.33333333333337"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="CEq-fz-F6h" firstAttribute="top" secondItem="5pK-Cx-be6" secondAttribute="top" id="8XB-Av-I5F"/>
+                                    <constraint firstAttribute="bottom" secondItem="EWf-Ik-0Xq" secondAttribute="bottom" id="Sby-Pq-9kI"/>
+                                    <constraint firstItem="EWf-Ik-0Xq" firstAttribute="leading" secondItem="5pK-Cx-be6" secondAttribute="leading" id="UAs-Hf-HAI"/>
+                                    <constraint firstAttribute="trailing" secondItem="CEq-fz-F6h" secondAttribute="trailing" id="VLc-af-uYR"/>
+                                    <constraint firstItem="CEq-fz-F6h" firstAttribute="leading" secondItem="5pK-Cx-be6" secondAttribute="leading" id="l3L-dv-ObE"/>
+                                    <constraint firstAttribute="trailing" secondItem="EWf-Ik-0Xq" secondAttribute="trailing" id="oUb-yu-Mwr"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5pK-Cx-be6" secondAttribute="trailing" id="466-Kn-PIE"/>
+                            <constraint firstItem="5pK-Cx-be6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CaV-Qm-WhY"/>
+                            <constraint firstAttribute="bottom" secondItem="5pK-Cx-be6" secondAttribute="bottom" id="Rcc-R5-9s1"/>
+                            <constraint firstItem="5pK-Cx-be6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kmn-ge-Fgy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,12 +69,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imgbin_phonograph-record-roadburn-festival-lp-record-album-png" width="2438" height="2438"/>
+        <image name="newtitle" width="1278" height="278"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

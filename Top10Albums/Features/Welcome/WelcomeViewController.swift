@@ -21,20 +21,20 @@ class WelcomeViewController: UIViewController {
     
     let UIT = UIText()
     let typingDelay = 0.05
+    let pm = PurchaseMethods()
+    let viewModel = WelcomeViewModel()
     
     //MARK: - View Appearance & User Stats Setup
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let userID = IDgenerator()
-        saveID(userID: userID)
+
+        let userID = viewModel.IDgenerator()
+        viewModel.saveID(userID: userID)
         let savedID = UserDefaults.standard.object(forKey: K.uniqueID)
-        saveToFireStore(percentage: getOverallPercentage(), uniqueID: savedID as! String)
+        viewModel.saveToFireStore(percentage: viewModel.getPercentage(), uniqueID: savedID as! String)
         
-        let pm = PurchaseMethods()
-        
-        if pm.revealPremium() {
+        if viewModel.getPremium() {
             
             premiumButton.isHidden = true
         }
@@ -42,9 +42,9 @@ class WelcomeViewController: UIViewController {
         rotateRecord()
         tagLineLabel.text = ""
         
-        let statsText = textModifier(textLabel: (statsButton.titleLabel?.text!)!, fontSize: 29.0)
+        let statsText = viewModel.modifyText(textLabel: (statsButton.titleLabel?.text!)!, fontSize: 29.0)
         let statsColourString = NSMutableAttributedString(string: "")
-        let aboutText = textModifier(textLabel: (howItWorksButton.titleLabel?.text!)!, fontSize: 29.0)
+        let aboutText = viewModel.modifyText(textLabel: (howItWorksButton.titleLabel?.text!)!, fontSize: 29.0)
         let aboutColourString = NSMutableAttributedString(string: "")
             
             DispatchQueue.main.async {
@@ -108,9 +108,21 @@ class WelcomeViewController: UIViewController {
                 Thread.sleep(forTimeInterval: self.typingDelay)
             }
         }
+
         
-        //UI Element Animations.
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
+ 
+            genresButton.isHidden = true
+            statsButton.isHidden = true
+            howItWorksButton.isHidden = true
+            premiumButton.isHidden = true
+
         premiumButton.frame.origin = CGPoint(x: view.center.x + premiumButton.frame.width * 2, y: view.center.y + premiumButton.frame.height * 5)
         let animation = CABasicAnimation(keyPath: K.positionX)
         animation.fromValue = view.center.x + premiumButton.frame.width * 2
@@ -123,8 +135,6 @@ class WelcomeViewController: UIViewController {
         animation.beginTime = CACurrentMediaTime() + 0.5
         animation.setValue(K.premiumAnim, forKey: K.name)
         premiumButton.layer.add(animation, forKey: K.flyInAnimation)
-        
-        
         
         howItWorksButton.frame.origin = CGPoint(x: view.center.x - premiumButton.frame.width * 2, y: view.center.y + howItWorksButton.frame.height * 3.5)
         let animation2 = CABasicAnimation(keyPath: K.positionX)
@@ -139,7 +149,6 @@ class WelcomeViewController: UIViewController {
         animation2.setValue(K.howAnim, forKey: K.name)
         howItWorksButton.layer.add(animation2, forKey: K.flyInAnimation2)
         
-        
         statsButton.frame.origin = CGPoint(x: view.center.x + premiumButton.frame.width * 2, y: view.center.y + premiumButton.frame.height * 2)
         let animation3 = CABasicAnimation(keyPath: K.positionX)
         animation3.fromValue = view.center.x + premiumButton.frame.width * 2
@@ -153,7 +162,6 @@ class WelcomeViewController: UIViewController {
         animation3.setValue(K.statsAnim, forKey: K.name)
         statsButton.layer.add(animation3, forKey: K.flyInAnimation3)
         
-        
         genresButton.frame.origin = CGPoint(x: view.center.x - premiumButton.frame.width * 2, y: view.center.y + howItWorksButton.frame.height * 0.5)
         let animation4 = CABasicAnimation(keyPath: K.positionX)
         animation4.fromValue = view.center.x - premiumButton.frame.width * 2
@@ -166,17 +174,7 @@ class WelcomeViewController: UIViewController {
         animation4.beginTime = CACurrentMediaTime() + 0.5
         animation4.setValue(K.genresAnim, forKey: K.name)
         genresButton.layer.add(animation4, forKey: K.flyInAnimation4)
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backButton
-
-        
-        
     }
 
     func rotateRecord() {
@@ -196,51 +194,20 @@ class WelcomeViewController: UIViewController {
 
 
 extension WelcomeViewController: CAAnimationDelegate {
+    
+    func animationDidStart(_ anim: CAAnimation) {
         
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-        if let name = anim.value(forKey: "name") as? String {
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
             
-            if name == "premiumAnim" {
+            genresButton.isHidden = false
+            statsButton.isHidden = false
+            howItWorksButton.isHidden = false
+            
+            if !viewModel.getPremium() {
                 
-               
-                if let layer = anim.value(forKey: "layer") as? CALayer, let originalY = anim.value(forKey: "originalY") as? CGFloat {
-                    var newPosition = layer.position
-                    newPosition.y = originalY
-                    newPosition.x = view.center.x
-                    layer.position = newPosition
-                }
-            } else if name == K.howAnim {
-                
-                if let layer = anim.value(forKey: K.layer) as? CALayer, let originalY = anim.value(forKey: K.originalY) as? CGFloat {
-                    var newPosition = layer.position
-                    newPosition.y = originalY
-                    newPosition.x = view.center.x
-                    layer.position = newPosition
-                }
-                
-            } else if name == K.statsAnim {
-                
-                if let layer = anim.value(forKey: K.layer) as? CALayer, let originalY = anim.value(forKey: K.originalY) as? CGFloat {
-                    var newPosition = layer.position
-                    newPosition.y = originalY
-                    newPosition.x = view.center.x
-                    layer.position = newPosition
-                }
-                
-            } else if name == K.genresAnim {
-                
-                if let layer = anim.value(forKey: K.layer) as? CALayer, let originalY = anim.value(forKey: K.originalY) as? CGFloat {
-                    var newPosition = layer.position
-                    newPosition.y = originalY
-                    newPosition.x = view.center.x
-                    layer.position = newPosition
-                }
-                
+                premiumButton.isHidden = false
             }
-            
-            
         }
+      
     }
 }

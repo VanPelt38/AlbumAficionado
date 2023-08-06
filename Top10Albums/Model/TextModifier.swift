@@ -8,33 +8,36 @@
 import Foundation
 import UIKit
 
-//Method for converting 'a's in UIText to red without typing effect.
+//Class for converting 'a's in UIText to red without typing effect.
 
-func textModifier(textLabel: String, fontSize: Double) -> [NSMutableAttributedString] {
+class TextModifier {
     
-    var stringArray: [NSMutableAttributedString] = []
-    let font = UIFont(name: "Gill Sans", size: fontSize)
-    
-    if let safeFont = font {
+    func textModifier(textLabel: String, fontSize: Double) -> [NSMutableAttributedString] {
         
-        let attributes: [NSAttributedString.Key: Any] = [.font: safeFont]
+        var stringArray: [NSMutableAttributedString] = []
+        let font = UIFont(name: "Gill Sans", size: fontSize)
         
-        for index in 0..<(textLabel.count) {
+        if let safeFont = font {
             
-            let descriptionCharacter = String((textLabel[(textLabel.index((textLabel.startIndex), offsetBy: index))]))
-            let descriptionAttributedCharacter = NSMutableAttributedString(string: descriptionCharacter, attributes: attributes)
+            let attributes: [NSAttributedString.Key: Any] = [.font: safeFont]
             
-            if descriptionCharacter.lowercased() == "a" {
+            for index in 0..<(textLabel.count) {
                 
-                descriptionAttributedCharacter.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 0, length: 1))
-            } else {
+                let descriptionCharacter = String((textLabel[(textLabel.index((textLabel.startIndex), offsetBy: index))]))
+                let descriptionAttributedCharacter = NSMutableAttributedString(string: descriptionCharacter, attributes: attributes)
                 
-                descriptionAttributedCharacter.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: 1))
+                if descriptionCharacter.lowercased() == "a" {
+                    
+                    descriptionAttributedCharacter.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(location: 0, length: 1))
+                } else {
+                    
+                    descriptionAttributedCharacter.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: 1))
+                }
+                
+                stringArray.append(descriptionAttributedCharacter)
             }
-            
-            stringArray.append(descriptionAttributedCharacter)
         }
+        
+        return stringArray
     }
-    
-    return stringArray
 }

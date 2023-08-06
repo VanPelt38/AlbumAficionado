@@ -17,6 +17,7 @@ class StatsViewController: UIViewController {
     
     var UIT = UIText()
     let typingDelay = 0.01
+    let viewModel = StatsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,13 @@ class StatsViewController: UIViewController {
         
         Task.init {
             do {
-                finalPercent = try await calcPremiumScore(userPercent: getOverallPercentage())
+                finalPercent = try await viewModel.calcPremiumScore(userPercent: viewModel.getPercentage())
             } catch {
                 print(error)
             }
         }
         
-        let getPercentString = "\(getOverallPercentage())%"
+        let getPercentString = "\(viewModel.getPercentage())%"
         
         
         let youListenedToColourChangedString = NSMutableAttributedString(string: "")

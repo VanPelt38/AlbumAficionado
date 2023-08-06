@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreData
-import WikipediaKit
 import Firebase
 import FirebaseCore
 import FirebaseFirestore
@@ -22,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     var window: UIWindow?
     override init() {
-        WikipediaNetworking.appAuthorEmailForAPI = K.email
+//        WikipediaNetworking.appAuthorEmailForAPI = K.email
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

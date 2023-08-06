@@ -13,6 +13,7 @@ class GenreViewController: UIViewController {
     @IBOutlet weak var genreTable: UITableView!
     @IBOutlet weak var addListButton: UIBarButtonItem!
     
+    var viewModel = GenreViewModel()
     var topTenList: [[String]] = [[]]
     var genreMoniker: String = ""
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -62,10 +63,10 @@ class GenreViewController: UIViewController {
                
                 let theRow = theTable.row
                 
-                if theRow >= genreCount() {
+                if theRow >= viewModel.genreCount() {
                     
-                    context.delete(userAlbumsList[theRow - genreCount()])
-                    userAlbumsList.remove(at: theRow - genreCount())
+                    context.delete(userAlbumsList[theRow - viewModel.genreCount()])
+                    userAlbumsList.remove(at: theRow - viewModel.genreCount())
                     saveData()
                 }
 
@@ -167,7 +168,7 @@ extension GenreViewController: UITableViewDataSource {
         
       
             
-        return genreCount() + userAlbumsList.count
+        return viewModel.genreCount() + userAlbumsList.count
        
     }
     
@@ -184,10 +185,10 @@ extension GenreViewController: UITableViewDataSource {
         let margins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         cell.frame = cell.frame.inset(by: margins)
         
-        if indexPath.row < genreCount() {
+        if indexPath.row < viewModel.genreCount() {
             
             
-            let genreText = textModifier(textLabel: (genreName()[indexPath.row]), fontSize: 20.0)
+            let genreText = viewModel.modifyText(textLabel: (viewModel.genreName()[indexPath.row]), fontSize: 20.0)
             let genreColourString = NSMutableAttributedString(string: "")
 
                     for character in genreText {
@@ -199,9 +200,9 @@ extension GenreViewController: UITableViewDataSource {
             
         } else {
             
-            if let safeName = userAlbumsList[indexPath.row - genreCount()].tableName {
+            if let safeName = userAlbumsList[indexPath.row - viewModel.genreCount()].tableName {
                 
-                let genreText = textModifier(textLabel: (safeName), fontSize: 20.0)
+                let genreText = viewModel.modifyText(textLabel: (safeName), fontSize: 20.0)
                 let genreColourString = NSMutableAttributedString(string: "")
                 
                
@@ -232,15 +233,15 @@ extension GenreViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row < genreCount() {
+        if indexPath.row < viewModel.genreCount() {
             
-            topTenList = getTopTenList(genreName: genreName()[indexPath.row])
-            
-            genreMoniker = genreName()[indexPath.row]
+            topTenList = viewModel.getTopTenList(genreName: viewModel.genreName()[indexPath.row])
+            print("this is top10list: \(topTenList)")
+            genreMoniker = viewModel.genreName()[indexPath.row]
             
         } else {
             
-            genreMoniker = userAlbumsList[indexPath.row - genreCount()].tableName ?? "error"
+            genreMoniker = userAlbumsList[indexPath.row - viewModel.genreCount()].tableName ?? "error"
             wasUserAlbumChosen = true
             
         }
